@@ -1,0 +1,11 @@
+{
+  "auto_hide": false,
+  "auto_hide_programs": [],
+  "start_minimized": false,
+  "theme": "dark",
+  "animation_speed": 150,
+  "window_opacity": 0.95,
+  "self_hide": true,
+  "hide_console": true,
+  "minimize_to_tray": true
+}
