@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Hider - Fenster verstecken für Streamer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-panel: #151515;
+            --bg-card: #0f0f0f;
+            --bg-glass: #121212;
+            --border: #1a1a1a;
+            --border-hover: #333333;
+            --text-main: #ffffff;
+            --text-sub: #888888;
+            --accent-red: #ff4444;
+            --accent-green: #44ff44;
+            --accent-hover: #252525;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border: 2px solid var(--border-hover);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        .badge.windows {
+            border-color: #0078d4;
+            color: #0078d4;
+        }
+
+        .badge.python {
+            border-color: #3776ab;
+            color: #3776ab;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-glass);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Usage */
+        .usage {
+            padding: 60px 0;
+            background: var(--bg-panel);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 16px;
+        }
+
+        .step h4 {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Tech Specs */
+        .tech {
+            padding: 60px 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .tech-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .tech-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .tech-card ul {
+            list-style: none;
+        }
+
+        .tech-card li {
+            padding: 6px 0;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .tech-card li::before {
+            content: "◈ ";
+            color: var(--accent-green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        footer .author {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">◈</div>
+                    Window Hider
+                </div>
+                <nav class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#usage">Verwendung</a>
+                    <a href="#tech">Technisch</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Window Hider</h1>
+            <p>Ein leistungsstarkes Tool zum Verstecken von Fenstern im Stream. Verstecke einzelne Anwendungen, nicht den ganzen Desktop.</p>
+            <p style="font-size: 1rem; margin-top: 16px;">A powerful tool for hiding windows from your stream.</p>
+            <div class="badges">
+                <span class="badge windows">Windows 10/11</span>
+                <span class="badge python">Python 3.x</span>
+                <span class="badge">Tkinter GUI</span>
+                <span class="badge">Open Source</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👁</div>
+                    <h3>Einzelne Fenster verstecken</h3>
+                    <p>Verstecke nur bestimmte Programme, nicht den ganzen Desktop. Ideal für sensible Informationen während des Streamings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Auto-Hide</h3>
+                    <p>Automatisches Verstecken von bestimmten Programmen beim Start. Nie wieder vergessen, private Fenster auszublenden.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📥</div>
+                    <h3>System Tray</h3>
+                    <p>Läuft diskret im Hintergrund im System Tray. Schneller Zugriff über das Tray-Icon.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Moderne UI</h3>
+                    <p>Schickes schwarzes Design mit flüssiger Bedienung. Integriertes Settings Panel für alle Einstellungen.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙</div>
+                    <h3>Settings Panel</h3>
+                    <p>Integrierte Einstellungen direkt in der App. Konfiguriere Auto-Hide, Opazität, Tray-Verhalten und mehr.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Kompaktes Design</h3>
+                    <p>Platzsparende, vertikale Listenansicht mit Scroll-Funktion. Übersichtlich auch bei vielen Fenstern.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage" class="usage">
+        <div class="container">
+            <h2 class="section-title">Schnellstart</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Admin starten</h4>
+                    <p>Starte die Anwendung als Administrator für vollen Zugriff</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Fenster wählen</h4>
+                    <p>Wähle ein Fenster aus der Liste aller sichtbaren Fenster</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>HIDE klicken</h4>
+                    <p>Klicke auf HIDE um das Fenster vor dem Stream zu verstecken</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>SHOW klicken</h4>
+                    <p>Klicke auf SHOW um es wieder anzuzeigen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="tech">
+        <div class="container">
+            <h2 class="section-title">Technische Details</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Anforderungen</h4>
+                    <ul>
+                        <li>Windows 10/11</li>
+                        <li>Python 3.x</li>
+                        <li>Administrator-Rechte</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Abhängigkeiten</h4>
+                    <ul>
+                        <li>pywin32</li>
+                        <li>psutil</li>
+                        <li>pystray</li>
+                        <li>Pillow</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Technologie</h4>
+                    <ul>
+                        <li>Python</li>
+                        <li>Tkinter GUI</li>
+                        <li>Windows API</li>
+                        <li>DLL Injection</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Farbpalette</h4>
+                    <ul>
+                        <li>Background: #0a0a0a</li>
+                        <li>Panel: #151515</li>
+                        <li>Hide Button: #ff4444</li>
+                        <li>Show Button: #44ff44</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Entwickelt von <span class="author">Jojosstudio</span> - 2026</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">Developed by Jojosstudio - 2026</p>
+        </div>
+    </footer>
+</body>
+</html>
