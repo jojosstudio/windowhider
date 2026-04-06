@@ -1,85 +1,92 @@
-# Window Hider
+# ◈ Window Hider
 
-Ein leistungsstarkes Tool zum Verstecken von Fenstern im Stream.
+> Ein leistungsstarkes Tool zum Verstecken von Fenstern im Stream.  
+> A powerful tool for hiding windows from your stream.
 
-**🌐 Webseite:** https://jojosstudio.github.io/windowhider/
-
-A powerful tool for hiding windows from your stream.
-
----
-
-## 🇩🇪 Deutsch
-
-### Beschreibung
-Window Hider ist ein Windows-Tool, mit dem du einzelne Anwendungsfenster vor deinem Stream verstecken kannst. Ideal für Streamer, die sensible Informationen oder private Fenster ausblenden möchten, ohne den gesamten Desktop zu verstecken.
-
-### Funktionen
-- **Einzelne Fenster verstecken** - Verstecke nur bestimmte Programme, nicht den ganzen Desktop
-- **Auto-Hide** - Automatisches Verstecken von bestimmten Programmen beim Start
-- **System Tray** - Läuft im Hintergrund im System Tray
-- **Moderne UI** - Schickes schwarzes Design mit flüssiger Bedienung
-- **Settings Panel** - Integrierte Einstellungen direkt in der App
-- **Kompaktes Design** - Platzsparende, vertikale Listenansicht
-
-### Verwendung
-1. Starte die Anwendung als Administrator
-2. Wähle ein Fenster aus der Liste
-3. Klicke auf "HIDE" um es zu verstecken
-4. Klicke auf "SHOW" um es wieder anzuzeigen
-
-### Einstellungen
-- **Auto-Hide** - Aktiviere das automatische Verstecken bestimmter Programme
-- **Minimize to Tray** - Minimiere die App zum System Tray
-- **Hide Console** - Verstecke das Konsolenfenster
-- **Start Minimized** - Starte die App minimiert
+[![Website](https://img.shields.io/badge/Website-jojosstudio.github.io/windowhider-white?style=flat-square&logo=github)](https://jojosstudio.github.io/windowhider/)
+[![Version](https://img.shields.io/badge/Version-1.0.0-44ff44?style=flat-square)](#)
+[![Windows](https://img.shields.io/badge/Windows-10%2F11-0078d4?style=flat-square&logo=windows)](#)
+[![License](https://img.shields.io/badge/License-MIT-ff4444?style=flat-square)](LICENSE.txt)
 
 ---
 
-## 🇬🇧 English
+## 🚀 Download
 
-### Description
-Window Hider is a Windows tool that allows you to hide individual application windows from your stream. Perfect for streamers who want to hide sensitive information or private windows without hiding the entire desktop.
-
-### Features
-- **Hide Individual Windows** - Hide only specific programs, not the entire desktop
-- **Auto-Hide** - Automatically hide certain programs when they start
-- **System Tray** - Runs in the background in the system tray
-- **Modern UI** - Sleek black design with smooth operation
-- **Settings Panel** - Integrated settings directly in the app
-- **Compact Design** - Space-saving vertical list view
-
-### Usage
-1. Start the application as Administrator
-2. Select a window from the list
-3. Click "HIDE" to hide it
-4. Click "SHOW" to display it again
-
-### Settings
-- **Auto-Hide** - Enable automatic hiding of specific programs
-- **Minimize to Tray** - Minimize the app to the system tray
-- **Hide Console** - Hide the console window
-- **Start Minimized** - Start the app minimized
+| Für Endnutzer / For End Users | Für Entwickler / For Developers |
+|------------------------------|----------------------------------|
+| [**EXE-Beta**](https://github.com/jojosstudio/windowhider/releases/tag/EXE-Beta) | [**Beta (Source)**](https://github.com/jojosstudio/windowhider/releases/tag/Beta) |
+| `WindowHider-Setup.exe` - Windows Installer | Roh-Dateien zum Anpassen |
+| `WindowHider.exe` - Portable Version | Source code for customization |
 
 ---
 
-## Technische Details / Technical Details
+## ✨ Features / Funktionen
 
-**Autor / Author:** Jojosstudio  
-**Programmiersprache / Programming Language:** Python  
-**GUI-Framework:** Tkinter  
-**Betriebssystem:** Windows  
-
-**Anforderungen / Requirements:**
-- Windows 10/11
-- Python 3.x
-- Admin-Rechte / Admin privileges
-
-**Abhängigkeiten / Dependencies:**
-- pywin32
-- psutil
-- pystray
-- Pillow
+| 🇩🇪 Deutsch | 🇬🇧 English |
+|-----------|------------|
+| **Einzelne Fenster verstecken** - Nur bestimmte Programme, nicht den ganzen Desktop | **Hide Individual Windows** - Hide only specific programs, not the entire desktop |
+| **Self-Hide** - Verstecke Window Hider selbst vor dem Stream | **Self-Hide** - Hide Window Hider itself from the stream |
+| **Auto-Hide** - Automatisches Verstecken beim Programmstart | **Auto-Hide** - Automatically hide programs when they start |
+| **System Tray** - Läuft im Hintergrund | **System Tray** - Runs in the background |
+| **Moderne UI** - Dunkles Design mit flüssiger Bedienung | **Modern UI** - Sleek dark design with smooth operation |
+| **Settings Panel** - Integrierte Einstellungen | **Settings Panel** - Integrated settings |
+| **Windows Installer** - Einfache Installation | **Windows Installer** - Easy installation setup |
 
 ---
 
-*Entwickelt von Jojosstudio - 2026*
+## 📖 Quick Start / Schnellstart
+
+### 🇩🇪 Deutsch
+1. Lade `WindowHider-Setup.exe` oder `WindowHider.exe` herunter
+2. Führe die Anwendung als **Administrator** aus
+3. Wähle ein Fenster aus der Liste
+4. Klicke **HIDE** zum Verstecken
+5. Klicke **SHOW** zum Anzeigen
+
+### 🇬🇧 English
+1. Download `WindowHider-Setup.exe` or `WindowHider.exe`
+2. Run as **Administrator**
+3. Select a window from the list
+4. Click **HIDE** to hide it
+5. Click **SHOW** to display it
+
+---
+
+## ⚙️ Settings / Einstellungen
+
+| Setting | Deutsch | Beschreibung |
+|---------|---------|-------------|
+| **Auto-Hide** | Automatisches Verstecken | Verstecke bestimmte Programme automatisch |
+| **Hide Self from Stream** | Selbst verstecken | Verstecke Window Hider selbst |
+| **Minimize to Tray** | In Tray minimieren | Minimiere zur System Tray |
+| **Hide Console** | Konsole verstecken | Verstecke das Konsolenfenster |
+| **Start Minimized** | Minimiert starten | Starte die App minimiert |
+
+---
+
+## 🛠️ Technical Details / Technische Details
+
+| | |
+|---|---|
+| **Author** | Jojosstudio |
+| **Language** | Python 3.x |
+| **GUI** | Tkinter |
+| **OS** | Windows 10/11 |
+| **Dependencies** | pywin32, psutil, pystray, Pillow |
+| **License** | MIT |
+
+---
+
+## 📝 Release Notes
+
+Siehe [RELEASE_NOTES.md](RELEASE_NOTES.md) für alle Änderungen in v1.0.0  
+See [RELEASE_NOTES.md](RELEASE_NOTES.md) for all changes in v1.0.0
+
+---
+
+<p align="center">
+  <b>Entwickelt von Jojosstudio — 2026</b><br>
+  <a href="https://jojosstudio.github.io/windowhider/">Website</a> • 
+  <a href="https://github.com/jojosstudio/windowhider">GitHub</a> • 
+  <a href="https://github.com/jojosstudio/windowhider/releases">Releases</a>
+</p>
