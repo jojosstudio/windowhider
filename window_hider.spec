@@ -4,9 +4,9 @@
 a = Analysis(
     ['window_hider.py'],
     pathex=[],
-    binaries=[],
-    datas=[],
-    hiddenimports=[],
+    binaries=[('hider.dll', '.')],
+    datas=[('settings.json', '.')],
+    hiddenimports=['win32gui', 'win32process', 'win32console', 'pystray', 'PIL', 'psutil'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='window_hider',
+    name='Window Hider',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -36,4 +36,5 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
     uac_admin=True,
+    icon='icon.ico',
 )
