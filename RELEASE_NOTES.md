@@ -1,4 +1,4 @@
-# Window Hider v1.0.0 - Release Notes
+# Window Hider v1.5.0 - Release Notes
 
 ## 🎉 Neue Features
 

@@ -4,7 +4,7 @@
 > A powerful tool for hiding windows from your stream.
 
 [![Website](https://img.shields.io/badge/Website-jojosstudio.github.io/windowhider-white?style=flat-square&logo=github)](https://jojosstudio.github.io/windowhider/)
-[![Version](https://img.shields.io/badge/Version-1.0.0-44ff44?style=flat-square)](#)
+[![Version](https://img.shields.io/badge/Version-1.5.0-44ff44?style=flat-square)](#)
 [![Windows](https://img.shields.io/badge/Windows-10%2F11-0078d4?style=flat-square&logo=windows)](#)
 [![License](https://img.shields.io/badge/License-MIT-ff4444?style=flat-square)](LICENSE.txt)
 
