@@ -84,6 +84,13 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) for all changes in v1.0.0
 
 ---
 
+## 🤖 KI-Unterstützung / AI Assistance
+
+Dieses Projekt wurde mit Unterstützung von **Kimi K2.5** (Moonshot AI) entwickelt.  
+This project was developed with assistance from **Kimi K2.5** (Moonshot AI).
+
+---
+
 <p align="center">
   <b>Entwickelt von Jojosstudio — 2026</b><br>
   <a href="https://jojosstudio.github.io/windowhider/">Website</a> • 
