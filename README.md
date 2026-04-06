@@ -2,6 +2,8 @@
 
 Ein leistungsstarkes Tool zum Verstecken von Fenstern im Stream.
 
+**🌐 Webseite:** https://jojosstudio.github.io/windowhider/
+
 A powerful tool for hiding windows from your stream.
 
 ---
