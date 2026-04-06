@@ -203,7 +203,12 @@ root.resizable(True, True)
 root.attributes('-alpha', 0.9)
 
 def hide_self():
-    pass
+    own_pid = os.getpid()
+    if inject_and_call(own_pid, WDA_EXCLUDEFROMCAPTURE):
+        print("[OK] Window Hider hidden from capture")
+        status_label.config(text="◈ Self hidden from stream")
+        return True
+    return False
 
 def create_compact_panel(parent):
     panel = tk.Frame(parent, bg=GLASS_BORDER, relief=tk.FLAT, bd=0)
@@ -366,6 +371,7 @@ def show_settings():
              bg=CARD_BG, fg=TEXT_MAIN).pack(side=tk.LEFT, padx=20, pady=15)
     
     settings_options = [
+        ("Hide Self from Stream", "self_hide"),
         ("Start Minimized", "start_minimized"),
         ("Hide Console Window", "hide_console"),
         ("Minimize to Tray", "minimize_to_tray")
@@ -506,8 +512,9 @@ def update_setting(key, value):
                 if console:
                     user32.ShowWindow(console, 1)
 
-def update_self_hide(value):
-    pass
+    elif key == 'self_hide':
+        if value:
+            hide_self()
 
 def auto_hide_monitor():
     while True:
@@ -583,6 +590,10 @@ def initialize_tray():
     tray_thread.start()
 
 root.after(1000, initialize_tray)
+
+# Auto-hide self if enabled
+if settings.get('self_hide', False):
+    root.after(1500, lambda: hide_self())
 
 main_container = tk.Frame(root, bg=BG)
 main_container.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
@@ -728,5 +739,13 @@ def show_all():
     hidden_pids.clear()
     refresh_all()
 
+def on_closing():
+    show_all()
+    save_settings()
+    if icon:
+        icon.stop()
+    root.destroy()
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
 refresh_all()
 root.mainloop()
