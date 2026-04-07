@@ -79,8 +79,8 @@
 
 ## 📝 Release Notes
 
-Siehe [RELEASE_NOTES.md](RELEASE_NOTES.md) für alle Änderungen in v1.0.0  
-See [RELEASE_NOTES.md](RELEASE_NOTES.md) for all changes in v1.0.0
+Siehe [RELEASE_NOTES.md](RELEASE_NOTES.md) für alle Änderungen in v1.5.0  
+See [RELEASE_NOTES.md](RELEASE_NOTES.md) for all changes in v1.5.0
 
 ---
 
